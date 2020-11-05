@@ -1,0 +1,68 @@
+.tdl-container{
+	width: 80%;
+	margin: auto;
+}
+#ltd-form{
+	width: 100%;
+	display: flex;
+	gap: 10px;
+}
+#ltd-form #item{
+	width: 100%;
+}
+#to-do-lists {
+	margin: 0;
+}
+#to-do-lists li {
+	list-style: none;
+	cursor: pointer;
+	padding: 5px 15px;
+	background: #fff;
+	margin: 10px auto;
+	color: #000;
+	display: flex;
+	gap: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+#to-do-lists li.checked .text{
+  text-decoration: line-through;
+}
+
+#to-do-lists li .text{
+	width: 80%;
+  border-color: transparent;
+}
+
+#to-do-lists li .rmv-btn {
+	margin-left: auto;
+	padding: 5px 9px;
+	background: #c36;
+	font-weight: 600;
+}
+.ltd-nav{
+	display: flex;
+	justify-content: space-between;
+}
+.ltd-nav .filter{
+	display: flex;
+	gap: 5px;
+}
+
+.ltd-nav .count,
+.ltd-nav .filter .ltd-button,
+.ltd-nav .clear-item{
+	cursor: pointer;
+}
+.ltd-nav .filter .ltd-button {
+	border: 1px solid transparent;
+	padding: 0px 5px;
+	border-radius: 4px;
+}
+.ltd-nav .filter .ltd-button:active{
+	border: 1px solid #ccc;
+}
+.ltd-nav .filter .ltd-button:hover,
+.ltd-nav .filter .ltd-button.active{
+	border: 1px solid #ccc;
+}

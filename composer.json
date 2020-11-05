@@ -1,0 +1,15 @@
+{
+    "name": "jakaria/List_To_Do",
+    "authors": [
+        {
+            "name": "jakaria",
+            "email": "jakariamd35@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "jakaria\\List_To_Do\\" : "includes/"
+        },
+        "files": [ "functions/functions.php" ]
+    }
+}
