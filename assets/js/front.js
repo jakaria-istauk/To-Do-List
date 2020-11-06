@@ -1,20 +1,21 @@
 jQuery(function($){
 
-	var all_items = $('#to-do-lists li').length
-	var done_items = $('#to-do-lists li.checked').length
-	var item_left = parseInt(all_items) - parseInt(done_items);
-
+	var all_items 	= $('#to-do-lists li').length
+	var done_items 	= $('#to-do-lists li.checked').length
+	var item_left 	= parseInt(all_items) - parseInt(done_items);
 	$('#to-do-lists li.checked').hide()
 
-	if ( item_left = 0 ) {
-		$('.ltd-nav').hide()
-	}else if( item_left < 2 ){
-		$('.count', '.ltd-nav').text( item_left + ' Item left' )
-	}else if( item_left >= 2 ){
-		$('.count', '.ltd-nav').text( item_left + ' Items left' )
+	function item_count( item_left ){
+		if ( item_left == 0 ) {
+			$('.ltd-nav').hide()
+		}else if( item_left < 2 ){
+			$('.count', '.ltd-nav').text( item_left + ' Item left' )
+		}else if( item_left >= 2 ){
+			$('.count', '.ltd-nav').text( item_left + ' Items left' )
+		}
 	}
 
-	console.log(item_left)
+	item_count( item_left );
 
 	function update_item_status( id, status ){
 		$.ajax({
@@ -69,21 +70,27 @@ jQuery(function($){
 	$(document).on( 'click', '#to-do-lists li .checkbox', function(e){
 		var par = $(this).parent();
 		if($(this).prop("checked") == true){
-            par.addClass( 'checked' )
-            par.hide()
+            par.addClass( 'checked' );
+            par.hide();
             update_item_status( par.data('id'), 'completed' );
+			done_items 	= $('#to-do-lists li.checked').length
+			item_left 	= parseInt(all_items) - parseInt(done_items);
+            item_count( item_left );
         }
         else if($(this).prop("checked") == false){
-            par.removeClass( 'checked' )
-            par.show()
+            par.removeClass( 'checked' );
+            par.show();
             update_item_status( par.data('id'), '' );
+			done_items 	= $('#to-do-lists li.checked').length
+			item_left 	= parseInt(all_items) - parseInt(done_items);
+            item_count( item_left );
         }
         done_items = $('#to-do-lists li.checked').length
         item_left = all_items - done_items;
 	} );
 
 	$(document).on( 'change', '.text', function() {
-		var par = $(this).parent()
+		var par = $(this).parent();
 		$.ajax({
 			url: LTD.ajaxurl,
 			data: { action: 'update-item', id:par.data('id'), value: $(this).val() },

@@ -43,16 +43,19 @@
 .ltd-nav{
 	display: flex;
 	justify-content: space-between;
+	margin-top: 10px;
 }
 .ltd-nav .filter{
 	display: flex;
 	gap: 5px;
 }
 
-.ltd-nav .count,
 .ltd-nav .filter .ltd-button,
 .ltd-nav .clear-completed{
 	cursor: pointer;
+}
+.ltd-nav .clear-completed:hover{
+	text-decoration: underline;
 }
 .ltd-nav .filter .ltd-button {
 	border: 1px solid transparent;
