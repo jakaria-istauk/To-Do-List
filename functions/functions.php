@@ -1,7 +1,4 @@
 <?php
-
-
-
 if( !function_exists( 'ldt_get_templates' ) ) :
 function ldt_get_templates( $slug ) {
 

@@ -5,8 +5,6 @@ Description: Create a to do list
 Version: 1.0.0
 Text Domain: list-to-do
 Author: Jakaria Istauk
-Author URI: https://jakariaistauk.com
-Plugin URI: https://jakariaistauk.com
 */
 
 namespace jakaria\List_To_Do;

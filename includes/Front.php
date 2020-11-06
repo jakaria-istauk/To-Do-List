@@ -24,9 +24,6 @@ class Front
 	}
 
 	public function list_to_do(){
-
-		$source = 'https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_todo';		
-
 		return ldt_get_templates('list-to-do-html');
 	}
 }
