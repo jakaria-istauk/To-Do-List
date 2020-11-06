@@ -51,7 +51,7 @@
 
 .ltd-nav .count,
 .ltd-nav .filter .ltd-button,
-.ltd-nav .clear-item{
+.ltd-nav .clear-completed{
 	cursor: pointer;
 }
 .ltd-nav .filter .ltd-button {

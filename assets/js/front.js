@@ -31,6 +31,21 @@ jQuery(function($){
 		});
 	};
 
+	function delete_item( id ) {
+		$.ajax({
+			url: LTD.ajaxurl,
+			data: { action: 'delete-item', id: id },
+			type: 'POST',
+			dataType: 'JSON',
+			success: function( resp ) {
+				console.log(resp)
+			},
+			error: function( resp ) {
+				console.log(resp)
+			}
+		});
+	}
+
 	$('#ltd-form').on('submit', function(e){
 		e.preventDefault();
 		var $formData = $( this ).serializeArray();
@@ -43,6 +58,7 @@ jQuery(function($){
 				if ( resp.list ) {
 					$('#to-do-lists').html( resp.list )
 				}
+				$('#item').val( '' )
 			},
 			error: function( resp ) {
 				console.log(resp)
@@ -85,18 +101,17 @@ jQuery(function($){
 	$(document).on( 'click', '.rmv-btn', function() {
 		var par = $(this).parent()
 		par.remove();
-		$.ajax({
-			url: LTD.ajaxurl,
-			data: { action: 'delete-item', id:par.data('id') },
-			type: 'POST',
-			dataType: 'JSON',
-			success: function( resp ) {
-				console.log(resp)
-			},
-			error: function( resp ) {
-				console.log(resp)
-			}
-		});
+		delete_item( par.data('id') );
+	} );
+
+	$(document).on( 'click', '.clear-completed', function() {
+		var par = $(this).parent();
+		var items = $('li.checked');
+
+		items.each( function(){
+			delete_item( $(this).data('id') )
+			$(this).remove()
+		} );
 	} );
 
 

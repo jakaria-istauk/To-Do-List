@@ -24,7 +24,7 @@ class Ajax
 	    	    )
 	    	);
 	    }
-    	$sql 	= "SELECT * FROM {$_table}";
+    	$sql 	= "SELECT * FROM {$_table} ORDER BY `id` DESC";
     	$items 	= $wpdb->get_results( $sql );
     	$list 	= '';
     	if ( !empty( $items ) ) {

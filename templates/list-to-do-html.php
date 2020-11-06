@@ -1,7 +1,7 @@
 <?php 
 	global $wpdb;
 	$_table = "{$wpdb->prefix}list_to_do";
-	$sql 	= "SELECT * FROM {$_table}";
+	$sql 	= "SELECT * FROM {$_table} ORDER BY `id` DESC";
 	$items 	= $wpdb->get_results( $sql );
  ?>
 <div class="tdl-container">
@@ -34,6 +34,6 @@
 			<span class="ltd-button" data-show='active' ><?php _e( 'Active', 'list-to-do' ) ?></span>
 			<span class="ltd-button" data-show='completed' ><?php _e( 'Completed', 'list-to-do' ) ?></span>
 		</div>
-		<div class="clear-item"><?php _e( 'Clear completed' ) ?></div>
+		<div class="clear-completed"><?php _e( 'Clear completed', 'list-to-do' ) ?></div>
 	</div>
 </div>
