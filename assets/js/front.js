@@ -1,11 +1,12 @@
 jQuery(function($){
 
-	var all_items 	= $('#to-do-lists li').length
-	var done_items 	= $('#to-do-lists li.checked').length
-	var item_left 	= parseInt(all_items) - parseInt(done_items);
 	$('#to-do-lists li.checked').hide()
 
-	function item_count( item_left ){
+	function item_count(){
+		var all_items 	= $('#to-do-lists li').length
+		var done_items 	= $('#to-do-lists li.checked').length
+		var item_left 	= parseInt(all_items) - parseInt(done_items);
+
 		if ( item_left == 0 ) {
 			$('.ltd-nav').hide()
 		}else if( item_left < 2 ){
@@ -15,7 +16,7 @@ jQuery(function($){
 		}
 	}
 
-	item_count( item_left );
+	item_count();
 
 	function update_item_status( id, status ){
 		$.ajax({
@@ -59,7 +60,8 @@ jQuery(function($){
 				if ( resp.list ) {
 					$('#to-do-lists').html( resp.list )
 				}
-				$('#item').val( '' )
+				$('#item').val( '' );
+				item_count();
 			},
 			error: function( resp ) {
 				console.log(resp)
@@ -73,17 +75,13 @@ jQuery(function($){
             par.addClass( 'checked' );
             par.hide();
             update_item_status( par.data('id'), 'completed' );
-			done_items 	= $('#to-do-lists li.checked').length
-			item_left 	= parseInt(all_items) - parseInt(done_items);
-            item_count( item_left );
+            item_count();
         }
         else if($(this).prop("checked") == false){
             par.removeClass( 'checked' );
             par.show();
             update_item_status( par.data('id'), '' );
-			done_items 	= $('#to-do-lists li.checked').length
-			item_left 	= parseInt(all_items) - parseInt(done_items);
-            item_count( item_left );
+            item_count();
         }
         done_items = $('#to-do-lists li.checked').length
         item_left = all_items - done_items;
@@ -109,6 +107,7 @@ jQuery(function($){
 		var par = $(this).parent()
 		par.remove();
 		delete_item( par.data('id') );
+		item_count();
 	} );
 
 	$(document).on( 'click', '.clear-completed', function() {
