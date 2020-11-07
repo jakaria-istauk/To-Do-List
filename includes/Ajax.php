@@ -24,8 +24,8 @@ class Ajax
 	    	    )
 	    	);
 	    }
-    	$sql 	= "SELECT * FROM {$_table} ORDER BY `id` DESC";
-    	$items 	= $wpdb->get_results( $sql );
+	    
+    	$items 	= ltd_get_list();
     	$list 	= '';
     	if ( !empty( $items ) ) {
     		foreach ( $items as $key => $item ) {
@@ -39,8 +39,8 @@ class Ajax
     			";
     		}
     	}
-		$reponse['list'] = $list;
-		$reponse['items'] = $items;
+		$reponse['list'] 	= $list;
+		$reponse['items'] 	= $items;
 		wp_send_json( $reponse );
 	}
 
@@ -53,10 +53,9 @@ class Ajax
 
 	    $reponse['status'] = 1;
 	    wp_send_json( $reponse );
-
 	}
 
-	public function update_item()	{
+	public function update_item() {
 		extract( $_POST );
 		global $wpdb;
 	    $_table = "{$wpdb->prefix}list_to_do";
@@ -65,10 +64,9 @@ class Ajax
 
 	    $reponse['status'] = 1;
 	    wp_send_json( $reponse );
-
 	}
 
-	public function delete_item()	{
+	public function delete_item() {
 		extract( $_POST );
 		global $wpdb;
 	    $_table = "{$wpdb->prefix}list_to_do";
@@ -77,6 +75,5 @@ class Ajax
 
 	    $reponse['status'] = 1;
 	    wp_send_json( $reponse );
-
 	}
 }

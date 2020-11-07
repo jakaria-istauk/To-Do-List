@@ -9,9 +9,9 @@ class Front
 	public $plugin;
 	
 	function __construct( $plugin )	{
-		$this->plugin = $plugin;
-		$this->slug = $plugin['textdomain'];
-		$this->version = $plugin['version'];
+		$this->plugin 	= $plugin;
+		$this->slug 	= $plugin['textdomain'];
+		$this->version 	= $plugin['version'];
 	}
 
 	public function enqueue_scripts()	{
@@ -24,6 +24,6 @@ class Front
 	}
 
 	public function list_to_do(){
-		return ldt_get_templates('list-to-do-html');
+		return ltd_get_templates('list-to-do-html');
 	}
 }

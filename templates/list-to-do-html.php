@@ -1,8 +1,5 @@
 <?php 
-	global $wpdb;
-	$_table = "{$wpdb->prefix}list_to_do";
-	$sql 	= "SELECT * FROM {$_table} ORDER BY `id` DESC";
-	$items 	= $wpdb->get_results( $sql );
+	$items 	= ltd_get_list();
  ?>
 <div class="tdl-container">
 	<div id="list-inputs" class="header">

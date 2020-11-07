@@ -10,9 +10,9 @@ class Admin
 	public $plugin;
 	
 	function __construct( $plugin )	{
-		$this->plugin = $plugin;
-		$this->slug = $plugin['textdomain'];
-		$this->version = $plugin['version'];
+		$this->plugin 	= $plugin;
+		$this->slug 	= $plugin['textdomain'];
+		$this->version 	= $plugin['version'];
 	}
 
 	public function create_to_do_list_table(){

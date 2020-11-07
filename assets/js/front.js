@@ -94,10 +94,10 @@ jQuery(function($){
 			type: 'POST',
 			dataType: 'JSON',
 			success: function( resp ) {
-				console.log(resp)
+				console.log(resp);
 			},
 			error: function( resp ) {
-				console.log(resp)
+				console.log(resp);
 			}
 		});
 	} );
@@ -114,11 +114,10 @@ jQuery(function($){
 		var items = $('li.checked');
 
 		items.each( function(){
-			delete_item( $(this).data('id') )
-			$(this).remove()
+			delete_item( $(this).data('id') );
+			$(this).remove();
 		} );
 	} );
-
 
 	$( '.ltd-nav .filter .ltd-button' ).on( 'click', function(e){
 
