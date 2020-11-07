@@ -23,7 +23,7 @@ jQuery(function($){
 	function update_item_status( id, status ){
 		$.ajax({
 			url: LTD.ajaxurl,
-			data: { action: 'update-status', id: id, status:status },
+			data: { action: 'update-status', id: id, status: status },
 			type: 'POST',
 			dataType: 'JSON',
 			success: function( resp ) {
@@ -63,6 +63,7 @@ jQuery(function($){
 					$('#to-do-lists').html( resp.list )
 				}
 				$('#item').val( '' );
+				$('#to-do-lists li.checked').hide();
 				item_count();
 			},
 			error: function( resp ) {
@@ -82,7 +83,7 @@ jQuery(function($){
             par.removeClass( 'checked' );
             par.show();
             update_item_status( par.data('id'), '' );
-        }
+        }        
         item_count();
 	} );
 

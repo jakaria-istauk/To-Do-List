@@ -24,17 +24,17 @@ class Ajax
 	    	    )
 	    	);
 	    }
-	    
+
     	$items 	= ltd_get_list();
     	$list 	= '';
     	if ( !empty( $items ) ) {
     		foreach ( $items as $key => $item ) {
     			$checked = $item->status == 'completed' ? 'checked' : '';
     			$list .= "
-    				<li class='{$checked}'>
-    					<input type='checkbox' class='checkbox' data-id='{$item->id}'>
-    					<span class='text'>{$item->item}</span>
-    					<button class='rmv-btn' data-id='{$item->id}'>&times;</button>
+    				<li class='{$checked}' data-id='{$item->id}'>
+    					<input type='checkbox' class='checkbox' {$checked}>
+    					<input class='text' value='{$item->item}' >
+    					<button class='rmv-btn' >&times;</button>
     				</li>
     			";
     		}

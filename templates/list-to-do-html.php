@@ -15,7 +15,7 @@
 	  			$checked = $item->status == 'completed' ? 'checked' : '';
 	  			echo "
 	  				<li class='{$checked}' data-id='{$item->id}'>
-	  					<input type='checkbox' class='checkbox'>
+	  					<input type='checkbox' class='checkbox' {$checked}>
 	  					<input class='text' value='{$item->item}' >
 	  					<button class='rmv-btn' >&times;</button>
 	  				</li>
